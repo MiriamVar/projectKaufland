@@ -28,7 +28,7 @@ public class Application {
 
     public void example() throws BillException, IOException, SQLException {
         Bill bill = new Bill();
-        bill.print();
+//        bill.print();
         Bottle milk = new Bottle("Milk 1,5%", 0.59,4);
         bill.addItem(milk);
 
@@ -44,14 +44,17 @@ public class Application {
         Draft vinea = new Draft("White vinea",1.20,true,0.3);
         bill.addItem(vinea);
 
-        System.out.println(bill.getCount());
 
         Draft beer = new Draft("Birell", 0.98,true,0.5);
         bill.addItem(beer);
         bill.removeItem(beer);
         bill.print();
-        System.out.println(bill.getFinalPrice());
-        Internet.getUSDrate();
+        System.out.println("Total items: "+bill.getCount());
+        System.out.println("Total price: "+bill.getFinalPrice());
+
+//        Internet.getUSDrate();
+        System.out.println("Price in USD: " + bill.getTotalPriceUSD());
+
         bill.end();
     }
 }

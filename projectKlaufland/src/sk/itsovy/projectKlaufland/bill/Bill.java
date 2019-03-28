@@ -5,6 +5,7 @@ import sk.itsovy.projectKlaufland.database.Database;
 import sk.itsovy.projectKlaufland.items.Item;
 
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,6 +15,7 @@ import sk.itsovy.projectKlaufland.items.Piece;
 import sk.itsovy.projectKlaufland.items.drink.DraftInterface;
 import sk.itsovy.projectKlaufland.items.food.Fruit;
 import sk.itsovy.projectKlaufland.main.Globals;
+import sk.itsovy.projectKlaufland.main.Internet;
 
 public class Bill {
     private List<Item> list;
@@ -80,7 +82,7 @@ public class Bill {
         for(Item item: list){
             sum+=item.getTotalPrice();
         }
-        System.out.println("Final price: ");
+//        System.out.println("Final price: ");
         return sum;
 //        throw new UnsupportedOperationException("Method does not exists yet");
     }
@@ -107,9 +109,10 @@ public class Bill {
         }
     }
 
-//    public double getTotalPriceUSD(){
-//        double totalPrice = getFinalPrice();
-//
-//    }
+    public double getTotalPriceUSD() throws IOException {
+        double totalPrice = getFinalPrice();
+        double sum = totalPrice * Internet.getUSDrate();
+        return sum;
+    }
 
 }
