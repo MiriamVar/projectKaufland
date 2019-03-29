@@ -4,7 +4,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -26,8 +26,7 @@ public class Internet  {
             JsonObject jsonObj = root.getAsJsonObject();
             jsonObj = jsonObj.getAsJsonObject("rates");
             result = jsonObj.get("USD").getAsDouble();
-         //   System.out.println("JSON String Result " + result);
-            //GetAndPost.POSTRequest(response.toString());
+
         return  result;
 
     }

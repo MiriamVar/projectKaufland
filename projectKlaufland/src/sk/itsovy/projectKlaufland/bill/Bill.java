@@ -40,8 +40,6 @@ public class Bill {
 
     public void end() throws SQLException {
         if(open){
-            date = new Date();
-            System.out.println( date);
             Database db = Database.getInstanceDB();
             db.insertNewBill(this);
 
@@ -106,6 +104,8 @@ public class Bill {
                     System.out.println("Name: "+item.getName() + " Count " + ((Piece) item).getAmount() +" Price: "+item.getPrice() + " TotalPrice: " + item.getTotalPrice());
                 }
             }
+            date = new Date();
+            System.out.println( date);
         }
     }
 

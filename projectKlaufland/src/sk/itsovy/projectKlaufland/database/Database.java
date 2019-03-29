@@ -8,7 +8,6 @@ import sk.itsovy.projectKlaufland.items.food.Fruit;
 
 import java.sql.*;
 
-//import static Globals.driver;
 import static sk.itsovy.projectKlaufland.main.Globals.userName;
 import static sk.itsovy.projectKlaufland.main.Globals.url;
 import static sk.itsovy.projectKlaufland.main.Globals.password;
@@ -56,10 +55,6 @@ public class Database {
                 throw new SQLException("Creating user failed, no rows affected.");
             }
             try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
-//                while (generatedKeys.next()) {
-//                    System.out.println(generatedKeys.getLong(1));
-////                    user.setId(generatedKeys.getLong(1));
-//                }
                 if (generatedKeys.next()){
                     for (Item item : bill.getList()) {
                         PreparedStatement statement2 = con.prepareStatement(query2, Statement.RETURN_GENERATED_KEYS);
@@ -96,4 +91,5 @@ public class Database {
         }
 
     }
+
 }

@@ -1,0 +1,40 @@
+<Bill>
+    <DateOfPurchase>
+        <Date>2019-03-29</Date>
+        <Time>15:41:26</Time>
+    </DateOfPurchase>
+    <Item>
+        <Name>Milk 1,5%</Name>
+        <Price>0.59</Price>
+        <Amount>4</Amount>
+        <Unit>pcs</Unit>
+    </Item>
+    <Item>
+        <Name>Hawai</Name>
+        <Price>1.1</Price>
+        <Amount>2</Amount>
+        <Unit>pcs</Unit>
+    </Item>
+    <Item>
+        <Name>Red apple</Name>
+        <Price>0.59</Price>
+        <Amount>0.37</Amount>
+        <Unit>kg</Unit>
+    </Item>
+    <Item>
+        <Name>Pencil 0.5</Name>
+        <Price>0.6</Price>
+        <Amount>1</Amount>
+        <Unit>pcs</Unit>
+    </Item>
+    <Item>
+        <Name>Rose vinea</Name>
+        <Price>1.2</Price>
+        <Amount>0.3</Amount>
+        <Unit>l</Unit>
+    </Item>
+    <Price>
+        <EUR>5.738300000000001</EUR>
+        <USD>6.445281513200001</USD>
+    </Price>
+</Bill>

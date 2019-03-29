@@ -10,6 +10,8 @@ import sk.itsovy.projectKlaufland.items.drink.Draft;
 import sk.itsovy.projectKlaufland.items.food.Fruit;
 import sk.itsovy.projectKlaufland.items.food.Pastry;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -26,7 +28,7 @@ public class Application {
         return app;
     }
 
-    public void example() throws BillException, IOException, SQLException {
+    public void example() throws BillException, IOException, SQLException, TransformerException, ParserConfigurationException {
         Bill bill = new Bill();
 //        bill.print();
         Bottle milk = new Bottle("Milk 1,5%", 0.59,4);
@@ -41,7 +43,7 @@ public class Application {
         Goods pencil = new Goods("Pencil 0.5",0.60,1, Category.SCHOOL);
         bill.addItem(pencil);
 
-        Draft vinea = new Draft("White vinea",1.20,true,0.3);
+        Draft vinea = new Draft("Rose vinea",1.20,true,0.3);
         bill.addItem(vinea);
 
 
@@ -52,9 +54,10 @@ public class Application {
         System.out.println("Total items: "+bill.getCount());
         System.out.println("Total price: "+bill.getFinalPrice());
 
-//        Internet.getUSDrate();
         System.out.println("Price in USD: " + bill.getTotalPriceUSD());
 
+        XML totalBill = new XML();
+        totalBill.createXML(bill);
         bill.end();
     }
 }
