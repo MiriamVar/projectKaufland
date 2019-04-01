@@ -20,6 +20,11 @@ public class Pastry extends Food implements Piece {
     }
 
     @Override
+    public void setAmount(double amount) {
+
+    }
+
+    @Override
     public double getTotalPrice(){
         return amount*getPrice();
     }

@@ -46,6 +46,8 @@ public class Application {
         Draft vinea = new Draft("Rose vinea",1.20,true,0.3);
         bill.addItem(vinea);
 
+        Item pizza2 = new Pastry("Hawai", 1.10,280,2);
+        bill.addItem(pizza2);
 
         Draft beer = new Draft("Birell", 0.98,true,0.5);
         bill.addItem(beer);

@@ -1,7 +1,7 @@
 <Bill>
     <DateOfPurchase>
-        <Date>2019-03-29</Date>
-        <Time>15:41:26</Time>
+        <Date>2019-04-01</Date>
+        <Time>13:19:59</Time>
     </DateOfPurchase>
     <Item>
         <Name>Milk 1,5%</Name>
@@ -35,6 +35,6 @@
     </Item>
     <Price>
         <EUR>5.738300000000001</EUR>
-        <USD>6.445281513200001</USD>
+        <USD>6.448110495100001</USD>
     </Price>
 </Bill>

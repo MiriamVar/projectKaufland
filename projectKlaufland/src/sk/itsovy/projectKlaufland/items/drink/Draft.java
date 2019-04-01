@@ -15,6 +15,10 @@ public class Draft extends Drink implements DraftInterface {
     }
 
     @Override
+    public void setVolume(double volume) {
+    }
+
+    @Override
     public double getTotalPrice() {
         return volume*getPrice();
     }

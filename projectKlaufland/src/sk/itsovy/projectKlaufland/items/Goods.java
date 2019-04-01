@@ -20,6 +20,11 @@ public class Goods extends Item implements Piece {
         return amount;
     }
 
+    @Override
+    public void setAmount(double amount) {
+
+    }
+
     public Category getType() {
         return type;
     }

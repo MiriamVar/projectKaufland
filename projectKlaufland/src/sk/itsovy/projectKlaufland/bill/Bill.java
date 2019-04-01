@@ -2,6 +2,7 @@ package sk.itsovy.projectKlaufland.bill;
 
 import sk.itsovy.projectKlaufland.Exepction.BillException;
 import sk.itsovy.projectKlaufland.database.Database;
+import sk.itsovy.projectKlaufland.items.Goods;
 import sk.itsovy.projectKlaufland.items.Item;
 
 
@@ -12,8 +13,12 @@ import java.util.Date;
 import java.util.List;
 
 import sk.itsovy.projectKlaufland.items.Piece;
+import sk.itsovy.projectKlaufland.items.drink.Bottle;
+import sk.itsovy.projectKlaufland.items.drink.Draft;
 import sk.itsovy.projectKlaufland.items.drink.DraftInterface;
 import sk.itsovy.projectKlaufland.items.food.Fruit;
+import sk.itsovy.projectKlaufland.items.food.Pastry;
+import sk.itsovy.projectKlaufland.items.food.Sweet;
 import sk.itsovy.projectKlaufland.main.Globals;
 import sk.itsovy.projectKlaufland.main.Internet;
 
@@ -62,7 +67,13 @@ public class Bill {
                 String message = "Bill is fulll, max is " + Globals.MAXTERMS + " items.";
                 throw new BillException(message);
             }
-            list.add(item);
+            Item existujuci = checkingItem(item);
+            if(existujuci == null){
+                list.add(item);
+            }
+            else{
+                updateItem(existujuci,item);
+            }
             count++;
 
         }
@@ -113,6 +124,30 @@ public class Bill {
         double totalPrice = getFinalPrice();
         double sum = totalPrice * Internet.getUSDrate();
         return sum;
+    }
+
+    public void updateItem(Item toUpdate, Item oldItem){
+        if(toUpdate instanceof DraftInterface) {
+            double newVolume = ((DraftInterface) toUpdate).getVolume()+ ((DraftInterface) oldItem).getVolume();
+            ((DraftInterface) toUpdate).setVolume(newVolume);
+        }
+        else if(toUpdate instanceof Fruit){
+            double newWeight = ((Fruit) toUpdate).getWeight() + ((Fruit) oldItem).getWeight();
+            ((Fruit) toUpdate).setWeight(newWeight);
+        }
+        else if(toUpdate instanceof Piece){
+            double newAmount = ((Piece) toUpdate).getAmount() + ((Piece) oldItem).getAmount();
+            ((Piece) toUpdate).setAmount(newAmount);
+        }
+    }
+
+    public Item checkingItem(Item item){
+        for (Item item2: list) {
+            if (item.getName().toLowerCase().equals(item2.getName().toLowerCase()) && item.getClass().getName().equals(item2.getClass().getName())) {
+                return item2;
+            }
+        }
+        return null;
     }
 
 }

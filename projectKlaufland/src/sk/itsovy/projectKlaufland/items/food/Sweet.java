@@ -22,4 +22,9 @@ public class Sweet extends Food implements Piece {
     public int getAmount() {
         return amount;
     }
+
+    @Override
+    public void setAmount(double amount) {
+
+    }
 }
