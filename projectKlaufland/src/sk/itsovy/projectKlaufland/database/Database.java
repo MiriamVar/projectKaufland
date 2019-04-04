@@ -8,9 +8,7 @@ import sk.itsovy.projectKlaufland.items.food.Fruit;
 
 import java.sql.*;
 
-import static sk.itsovy.projectKlaufland.main.Globals.userName;
-import static sk.itsovy.projectKlaufland.main.Globals.url;
-import static sk.itsovy.projectKlaufland.main.Globals.password;
+import static sk.itsovy.projectKlaufland.main.Globals.*;
 
 public class Database {
 
@@ -26,7 +24,7 @@ public class Database {
     private Connection getConnection(){
         Connection connection;
         try {
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(driver);
             System.out.println("Is connection");
             connection = DriverManager.getConnection(url,userName,password);
             return connection;

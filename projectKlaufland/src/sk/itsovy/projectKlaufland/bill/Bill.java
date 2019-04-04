@@ -2,6 +2,7 @@ package sk.itsovy.projectKlaufland.bill;
 
 import sk.itsovy.projectKlaufland.Exepction.BillException;
 import sk.itsovy.projectKlaufland.database.Database;
+import sk.itsovy.projectKlaufland.database.MongoDatabase;
 import sk.itsovy.projectKlaufland.items.Goods;
 import sk.itsovy.projectKlaufland.items.Item;
 
@@ -28,11 +29,20 @@ public class Bill {
     private  double sum;
     private boolean open;
     private  Date date;
+    private static int counter=0;
+    private int id;
+
+    public int getId() {
+        return id;
+    }
 
     public Bill() {
         this.list = new ArrayList<>();
         count = 0;
         open=true;
+        sum=0;
+        counter++;
+        id=count;
     }
 
     public List<Item> getList() {
@@ -47,6 +57,7 @@ public class Bill {
         if(open){
             Database db = Database.getInstanceDB();
             db.insertNewBill(this);
+            MongoDatabase mngDb = MongoDatabase.getInstanceMongoDB();
 
         }
         else {
