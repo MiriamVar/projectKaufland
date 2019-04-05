@@ -43,7 +43,7 @@ public class Bill {
         open=true;
         sum=0;
         counter++;
-        id=count;
+        id=counter;
     }
 
     public List<Item> getList() {
