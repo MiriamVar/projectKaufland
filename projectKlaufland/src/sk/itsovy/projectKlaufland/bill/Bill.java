@@ -2,7 +2,8 @@ package sk.itsovy.projectKlaufland.bill;
 
 import sk.itsovy.projectKlaufland.Exepction.BillException;
 import sk.itsovy.projectKlaufland.database.Database;
-import sk.itsovy.projectKlaufland.database.MongoDatabase;
+import sk.itsovy.projectKlaufland.database.MongoDatabaseD;
+import sk.itsovy.projectKlaufland.database.MongoDatabaseD;
 import sk.itsovy.projectKlaufland.items.Goods;
 import sk.itsovy.projectKlaufland.items.Item;
 
@@ -57,7 +58,8 @@ public class Bill {
         if(open){
             Database db = Database.getInstanceDB();
             db.insertNewBill(this);
-            MongoDatabase mngDb = MongoDatabase.getInstanceMongoDB();
+            MongoDatabaseD mngDb = MongoDatabaseD.getInstanceMongoDB();
+            mngDb.addBillToMongoDB(this);
 
         }
         else {

@@ -91,6 +91,10 @@ public class XML {
 
         }
 
+        Element billId = doc.createElement("IdOfBill");
+        billId.appendChild(doc.createTextNode(String.valueOf(bill.getId())));
+        rootElement.appendChild(billId);
+
         Element totalPrice = doc.createElement("Price");
         rootElement.appendChild(totalPrice);
 

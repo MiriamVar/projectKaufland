@@ -14,8 +14,8 @@ public class Globals {
     //MongoDB
     public static final String port = "27017";
     public static final String uri = "mongodb://localhost:"+port;
-    public static final String mongoUser = "";
-    public static final String mongoPass = "";
+    public static final String mongoUser = "kluadika";
+    public static final String mongoPass = "1234";
     public static final String nameDatabase = "klaufland";
 
 
